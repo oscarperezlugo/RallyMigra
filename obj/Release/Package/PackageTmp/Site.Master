@@ -1,0 +1,224 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PanelAdmin.SiteMaster"  %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrativo JEBCPHARMA</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/columnas.css" rel="stylesheet" />
+    <link href="Content/Site2.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="Content/Print.css" rel="stylesheet" media="print"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">       
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <nav class="nave fijador">
+            <div  class="col2L  col0M col0S col0T" >
+                  <a href="Default.aspx"><img id="logo" src="img/weblogo_jebcpharma-2.png" /></a>
+            </div>    
+            <div  class="col2L  col0M col0S col0T" >                  
+                <label>&ensp;</label>
+            </div> 
+            <div  class="col2L  col0M col0S col0T" >
+                <label>&ensp;</label>
+            </div> 
+            <div  class="col2L  col0M col0S col0T" >
+                <label>&ensp;</label>
+            </div> 
+            <div class="col2L  col0M col0S col0T" >             
+            <asp:Label ID="Label1" runat="server" CssClass="navetexto no-print"/>&ensp;<asp:Image ID="Avatar" runat="server" ImageUrl="~/img/isologo_5.png" class="avatardoscss"/>&ensp;&ensp;<a class="botonsub fa fa-bell fa-2x no-print" href="Pedidos.aspx"><div id="here"><asp:Label id="labelnot" runat="server" CssClass="notificacion"></asp:Label></div></a>&ensp;&ensp;<label class="botonsub fa fa-bars fa-2x no-print" for="check"></label>
+            </div> 
+        </nav>
+        
+       <%-- <nav class="subnave fijadordos">
+            <label class="fa fa-bars botonsub no-print" for="check"></label>&ensp; 
+            <i class="fa fa-user no-print"></i>&ensp;<asp:Label ID="Label2" runat="server" CssClass="titulomenu no-print"></asp:Label>
+            <asp:Button Text="CERRAR SESION" runat="server" CssClass="titulomenu no-print" for="chek" ForeColor="Red" BackColor="Transparent" BorderColor="Transparent" OnClick="Unnamed_Click" UseSubmitBehavior="False"></asp:Button>
+        </nav> --%>
+        <div id="cajacontenedor" class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>            
+        </div> 
+        <input type="checkbox" class="checkbox" id="check"/>
+        <label class="panelbloqueadorizq" for="check"></label>
+        <div id="block1" class="menulateral" >
+            <div class="desplegableint">
+                <h3 class="titulomenu"><img src="img/Vector.png" />  Inizio</h3>
+                <ul>
+                    <li><a href="Default.aspx">Inizio</a></li>
+                    <%--<li><a href="Perfil.aspx">Profilo</a></li>--%>
+                    <li><asp:Button ID="Button1" runat="server" Text="Profilo" UseSubmitBehavior="False" OnClick="Unnamed_ClickDos" CssClass="BotonMenu"/></li>
+                    <li><asp:Button ID="Button2" runat="server" Text="Cuenta" UseSubmitBehavior="False" OnClick="Unnamed_ClickTres" CssClass="BotonMenu"/></li>
+                    <li><asp:Button ID="Button3" runat="server" Text="Orario" UseSubmitBehavior="False" OnClick="Unnamed_ClickCuatro" CssClass="BotonMenu"/></li>
+                </ul>
+                </div>
+                <%--<div class="desplegableint" id="bloque5" runat="server">
+                <h3 class="titulomenu">CLIENTES</h3>
+                <ul>
+                    <li><a href="Lista.aspx">LISTA</a></li>
+                    <li><a href="Cliente.aspx">CREACION</a></li> 
+                    <li><a href="EditarUno.aspx">EDITAR CLIENTE</a></li>  
+                </ul>
+                    </div>--%>
+                <%--<h3 class="titulomenu">PROVEEDORES</h3>
+                <ul>                                       
+                </ul>--%>
+            
+            <div class="desplegableint" id="bloque1" runat="server">
+                <h3 class="titulomenu"><img src="img/Group3.png" /> I miei ordini</h3>
+                <ul>
+              <%--      <li><a href="Cotizacion.aspx">COTIZAR</a></li>
+                    <li><a href="Cotizaciones.aspx">COTIZACIONES</a></li> 
+                    <li><a href="PedidoNota.aspx">GENERAR NOTA DE ENTREGA</a></li>--%>
+          <%--          <li><a href="PedidosNota.aspx">NOTAS DE ENTREGA</a></li>--%>
+                <%--    <li><a href="Pedido.aspx">GENERAR FACTURAS</a></li>    --%>                
+                    <li><a href="Pedidos.aspx">Cronologia ordini</a></li>                                        
+            <%--        <li><a href="Cobranza.aspx">COBRANZA</a></li>--%>
+                    <li><a href="PedidosDos.aspx">Ordini in arrivo</a></li>
+                </ul>
+            </div>
+            <%--<div class="desplegable">
+                <h3 class="titulomenu">COTIZACIONES</h3>
+                <ul>
+                    <li><a href="Cotizacion.aspx">CREACION</a></li>
+                    <li><a href="Cotizaciones.aspx">LISTA</a></li>                    
+                </ul>
+            </div>--%>
+            <div class="desplegableint" id="bloque2" runat="server">
+                <h3 class="titulomenu"><img src="img/Group1.png" />  Acquisti</h3>
+                <ul>
+                <%--    <li><a href="Compra.aspx">ORDEN DE COMPRA</a></li> 
+                    <li><a href="PorPagarDos.aspx">COMPRAS</a></li>--%>
+                    <li><a href="Producto.aspx">Inseriere un prodotto</a></li>
+                    <li><a href="ProdEditar.aspx">Modifica un prodotto</a></li>
+                    <li><a href="ListaProductos.aspx">I miei prodotti</a></li> 
+                  <%--  <li><a href="Proveedor.aspx">CREACION PROVEEDORES</a></li> 
+                    <li><a href="EditarProv.aspx">EDITAR PROVEEDORES</a></li> 
+                    <li><a href="ListaProv.aspx">LISTA PROVEEDORES</a></li>   --%>                                                                             
+                    <li><a href="Categoria.aspx">Creare una categoria</a></li>                    
+                    <%--<li>EDICION PRODUCTO</li>
+                    <li>EDICION CATEGORIA</li>--%>
+                </ul>
+            </div>
+            <asp:Button Text="Logout" runat="server" CssClass="titulomenu no-print" for="chek" ForeColor="Red" BackColor="Transparent" BorderColor="Transparent" OnClick="Unnamed_Click" UseSubmitBehavior="False" Font-Size="18px"></asp:Button>
+           <%-- <div class="desplegable" id="bloque3" runat="server">
+                <h3 class="titulomenu">TASA</h3>
+                <ul>
+                    <li><a href="Tasa.aspx">ACTUALIZAR TASA</a></li>                    
+                </ul>
+            </div>--%>
+           <%-- <div class="desplegable" id="bloque4" runat="server">
+                <h3 class="titulomenu">REPORTES</h3>
+                <ul>                    
+                    <li><a href="ListaProductos.aspx">EXISTENCIA POR PRODUCTO</a></li>                    
+                    <li><a href="ConsProdCli.aspx">PRODUCTOS POR CLIENTE</a></li>
+                    <li><a href="ConsVentasMes.aspx">VENTAS POR MES</a></li>
+                    <li><a href="ConsVenCli.aspx">VENTAS POR CLIENTE</a></li>
+                    <li><a href="PorCobrar.aspx">CUENTAS POR COBRAR</a></li>
+                    <li><a href="PorPagar.aspx">CUENTAS POR PAGAR</a></li>
+                    <li><a href="Nomina.aspx">CREAR NOMINA</a></li> 
+                    <li><a href="EditarNomina.aspx">EDITAR NOMINA</a></li> 
+                    <li><a href="ClientesVendedor.aspx">CLIENTES X VENDEDOR</a></li> 
+                    <li><a href="ConsVentasVend.aspx">VENTAS X VENDEDOR</a></li> 
+                    <li><a href="NotasPedidos.aspx">FACTURA X NOTAS</a></li> 
+                </ul>
+            </div>--%>
+            <%--<div class="desplegable">
+                <h3 class="titulomenu">GASTOS</h3>
+                <ul>
+                    <li>GASTO PUNTUAL</li>
+                    <li>GASTO RECURRENTE</li>
+                    <li class="ultimomenu">RECURSO HUMANO</li>
+                </ul>
+            </div>--%>
+        </div>
+        <footer class="footer fila ">
+        <div id="footer1" class="col2L col1M col1S col1T divfoot">
+            <div class="fila">
+                <img id="logobajo" src="img/Isologo_5.png" />
+                <a class="elefoot col10L">© 2021 - Rallivery.</a><br />
+                <a class="elefoot col10L">Tutti i diritti riservati.</a>
+            </div>
+        </div>
+        <div id="footer2" class="col2L col1M col1S col1T divfoot">
+            <a class="elefoottres col10L">Categorie</a><br />
+            <br />
+            <a class="elefootdos col10L">Ristoranti</a><br />
+            <a class="elefootdos col10L">Supermercati</a><br />
+            <a class="elefootdos col10L">Farmacie</a><br />
+            <a class="elefootdos col10L">Florerie</a><br />
+            <a class="elefootdos col10L">Ferramente</a>
+        </div>
+        <div id="footer3" class="col2L col1M col1S col1T divfoot">
+            <a class="elefoottres col10L">Informazione</a><br />
+            <br />
+            <a class="elefootdos col10L">Termini e Condizione</a><br />
+            <a class="elefootdos col10L">Privacy Policy</a><br />
+            <a class="elefootdos col10L">Cookie Policy</a><br />
+            <a class="elefootdos col10L">Contatacci</a><br />
+            
+        </div>
+        <div id="footer4" class="col2L col1M col1S col1T divfoot">
+            <br />
+            <br />
+            <br />
+            <a class="elefootdos col10L">Chi Siamo</a><br />
+            <a class="elefootdos col10L">Diventa Rallista</a><br />
+            <a class="elefootdos col10L">Diventa Partner</a><br />
+        </div>
+        <div id="footer5" class="col2L col1M col1S col1T divfoot">
+            <a class="elefoottres col10L">Portaci ovunque</a><br />
+            <img class="logodes" src="img/Frame1.png" /><br />
+            <img class="logodes" src="img/imagen7.png" /><br />  
+            <a class="elefoottres col10L">Seguici su</a><br />
+            <i class="fa fa-instagram elefoottres" aria-hidden="true" style="font-size:25px;"></i>
+            <i class="fa fa-facebook-official elefoottres" aria-hidden="true" style="font-size:25px;"></i>
+            <br />
+        </div>
+    </footer>
+             
+    </form>
+</body>    
+     <script> 
+         $(document).ready(function () {
+             setInterval(function () {
+                 $("#here").load(window.location.href + " #here");
+             }, 120000);
+         });
+     </script>   
+   
+</html>
